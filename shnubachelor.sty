@@ -1,0 +1,295 @@
+%
+% This is file `shnubachelor.sty',
+% author andy123t
+% date 2023/03/15
+% version v1.0
+% LaTeX template for Bachelor thesis of SHNU
+%
+
+%---------- 常用宏包 ----------
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs,bm}
+\usepackage{graphicx}
+%\usepackage{parskip}
+%\usepackage[english]{babel}
+\usepackage{color,xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow,multicol}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{anyfontsize}
+\usepackage{pdfpages}
+\usepackage{geometry}
+\usepackage[numbered]{bookmark}
+\geometry{left=3.17cm,right=3.17cm,top=2.8cm,bottom=3.0cm}
+%\geometry{left=3.0cm,right=3.0cm,top=2.9cm,bottom=3.2cm}
+
+%---------- 设置图片的路径 ----------
+\graphicspath{{./figure/}{./figures/}}
+
+%---------- 设置超链接 ----------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = black,
+  citecolor = blue,
+  filecolor = blue,
+  urlcolor =blue,
+}
+
+%--- 允许多行公式跨页显示 ---
+\allowdisplaybreaks
+
+%---------- 页眉页脚 ----------
+\usepackage{fancyhdr}
+
+%---------- 设置页眉样式 ----------
+%\renewcommand{\headrule}{%
+%    \let\headrulewidth\plainheadrulewidth
+%    \hrule\@height 1.5pt \@width\headwidth %上面线1pt粗
+%    \vskip 1.6pt %两条线的距离
+%    \hrule\@height 0.4pt \@width\headwidth %下面线0.4pt粗
+%    \vskip-1.5pt
+%}
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\newcommand{\headstyle}{
+    %\fancyhead[RO,LE]{\zihao{5} \nouppercase{\leftmark}}
+    %\fancyhead[LO,RE]{\zihao{5} 上海师范大学本科毕业论文（设计）}
+    %\fancyhead[C]{\zihao{5} \nouppercase{\leftmark}}
+    \fancyhead[C]{\zihao{5} 上海师范大学本科毕业论文（设计）}
+}
+
+\newcommand{\footstyle}{
+    \fancyfoot[C]{\zihao{5} \thepage}
+    %\fancyfoot[LE]{\zihao{5} \thepage}
+    %\fancyfoot[RO]{\zihao{5} \thepage}
+}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}
+    \headstyle
+    \footstyle
+}
+
+\setlength{\headheight}{15pt}
+\pagestyle{plain}
+
+%---------- 设置章节 ----------
+\ctexset{
+  % section
+  section/name = {},
+  section/number = \arabic{section},
+  %section/number = \chinese{section},
+  section/format = \centering,
+  section/nameformat = \Large\bfseries,
+  section/titleformat = \Large\bfseries,
+  %section/beforeskip = 5.5ex plus 1ex minus .2ex,
+  % subsection
+  subsection/format = \raggedright,
+  subsection/nameformat = \large\bfseries,
+  subsection/titleformat = \large\bfseries,
+  % appendix
+  appendix/name = {附录},
+}
+
+%---------- 定义中英文关键词 ----------
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\Large}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{8pt}
+\setlength{\cftaftertoctitleskip}{20pt}
+\setlength{\cftbeforesecskip}{16pt}
+\setlength{\cftbeforesubsecskip}{5pt}
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftdotsep}{3}
+\renewcommand{\cftsecdotsep}{\cftdotsep}  %
+
+%---------- 中文摘要环境 ----------
+\newenvironment{cnabstract}{
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{摘要}
+\section*{摘要}
+\sectionmark{摘要}
+}{
+\par
+}
+
+%---------- 英文摘要环境 ----------
+\newenvironment{enabstract}{
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}
+\section*{Abstract}
+%\sectionmark{Abstract}
+}{
+\par
+}
+
+%---------- 中文段落缩进和行距 ----------
+\setlength{\parindent}{2em}                   % 首行两个汉字的缩进量
+\setlength{\parskip}{4pt plus 1pt minus 1pt}  % 段落之间的竖直距离
+\linespread{1.35}  % 设置行距
+%\renewcommand{\baselinestretch}{1.35}  % 设置行距
+%\setlength{\baselineskip}{24pt}
+
+%---------- 设置公式间距 ----------
+\AtBeginDocument{
+    \setlength{\abovedisplayskip}{5pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{5pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayshortskip}{3pt plus 1pt minus 1pt}
+    \setlength{\belowdisplayshortskip}{3pt plus 1pt minus 1pt}
+    %\setlength{\arraycolsep}{2pt}   % array中列之间空白长度
+}
+
+%---------- 定制图形和表格标题的样式 ----------
+\usepackage{caption}
+\captionsetup{font={small,singlespacing},labelformat={default},labelsep=quad}
+\captionsetup[figure]{position=bottom,skip={5pt},name={图}}
+\captionsetup[table]{position=top,skip={2pt},name={表}}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
+\setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt}
+
+%---------- 浮动对象设置 ----------
+% 浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本页面
+% 也可以防止在很大空白的浮动页上放置很小的图形
+%\renewcommand{\textfraction}{0.15}
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\bottomfraction}{0.65}
+%\renewcommand{\floatpagefraction}{0.60}
+
+%---------- 设置编号格式 ----------
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+%-------- 重新设置图表公式 autoref ----------
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\equationautorefname}{公式}
+
+%---------- 算法设置 ----------
+\usepackage{algorithm,algorithmicx}
+\usepackage{algpseudocode}
+\floatname{algorithm}{算法}
+\algrenewcommand\algorithmicrequire{\textbf{输入:}}
+\algrenewcommand\algorithmicensure{\textbf{输出:}}
+
+%---------- 使用 tabularx库并定义新的左右中格式 ----------
+\newcolumntype{L}{X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft \arraybackslash}X}
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+
+%---------- 数学定理设置 ----------
+\theoremstyle{plain}
+\newtheorem{definition}{定义}[section]
+\newtheorem{proposition}{命题}[section]
+\newtheorem{lemma}{引理}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{example}{例}[section]
+\newtheorem{corollary}{推论}[section]
+\newtheorem{remark}{注}[section]
+\newtheorem{exercise}{练习}[section]
+\newtheorem{assumption}{假设}[section]
+\newtheorem{axiom}{公理}[section]
+\newtheorem{property}{性质}[section]
+\newtheorem{conjecture}{猜想}[section]
+%\renewcommand{\proofname}{\heiti 证明}
+\renewcommand{\proofname}{证明}
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist\item[\hskip\labelsep
+    \bfseries #1\@addpunct{\,:\,}]\ignorespaces
+}{
+	\popQED\endtrivlist\@endpefalse
+}
+
+%---------- 子图宏包 ----------
+\usepackage{subfig} % 需要在tocloft后面
+
+%----------- 添加几个新的文档属性 -----------
+\newcommand{\college}[1]{\def\defcollege{#1}}
+\newcommand{\classmajor}[1]{\def\defclassmajor{#1}}
+\newcommand{\stunum}[1]{\def\defstunum{#1}}
+\newcommand{\instructor}[1]{\def\definstructor{#1}}
+\renewcommand{\title}[2][1]{\def\titlerownum{#1}\def\@title{#2}}
+\newcommand{\entitle}[2][1]{\def\defentitlerownum{#1}\def\defentitle{#2}}
+
+%---------- 载入学校logo ----------
+\def\logopic{shnu.eps}   %SHNU-logo
+
+%---------- 定义新的标题页面 ----------
+\renewcommand{\maketitle}[1][15em]{
+	\clearpage
+	\phantomsection
+	\pdfbookmark[1]{封面}{cover}
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace*{1.0\baselineskip}
+
+		\includegraphics[width=7.8cm]{\logopic}
+
+		\vspace*{2.0\baselineskip}
+
+		{\fontsize{30}{30}\selectfont\heiti 本~科~毕~业~论~文（设~计）}
+
+		\vspace*{3.2\baselineskip}
+
+		{\zihao{4}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{lp{.68\linewidth}<{\centering}}
+        \textbf{题目（中文）：} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
+        \ifthenelse{\titlerownum=1}{
+        \\[-8pt] \cline{2-2}
+        }{
+        \\[-2pt] \cline{2-2} \\[-12pt] \cline{2-2}
+        }
+        \end{tabular}
+        \begin{tabular}{lp{.64\linewidth}<{\centering}}
+         \textbf{\hspace{2\ccwd}（英文）：} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
+        \ifthenelse{\defentitlerownum=1}{
+        \\[-7pt] \cline{2-2}
+        }{
+        \\[-2pt] \cline{2-2} \\[-11pt] \cline{2-2}
+        }
+        \end{tabular}
+        }
+
+        \vspace*{3.3\baselineskip}
+
+		{\zihao{4}
+        \renewcommand{\arraystretch}{1.8}
+        \begin{tabular}{lp{.46\linewidth}<{\centering}}
+        学\hspace{2\ccwd}院 & \defcollege \\[-8pt]
+        \cline{2-2}
+        年级专业 & \defclassmajor \\[-8pt]
+        \cline{2-2}
+        学生姓名 & \@author \\[-8pt]
+        \cline{2-2}
+        学\hspace{2\ccwd}号  & \defstunum \\[-8pt]
+        \cline{2-2}
+        指导教师 & \definstructor \\[-8pt]
+        \cline{2-2}
+        \end{tabular}
+        }
+
+        \vfill
+
+        {\zihao{3}\textbf{完~成~日~期} \quad \@date}
+
+        \vspace*{5pt}
+	\end{center}
+}
+
+% End of file `shnubachelor.sty'.

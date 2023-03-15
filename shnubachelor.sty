@@ -10,10 +10,8 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathrsfs,bm}
 \usepackage{graphicx}
-%\usepackage{parskip}
 %\usepackage[english]{babel}
 \usepackage{color,xcolor}
-\usepackage{enumitem}
 \usepackage{float}
 \usepackage{pifont}
 \usepackage{tabularx}
@@ -31,6 +29,10 @@
 
 %---------- 设置图片的路径 ----------
 \graphicspath{{./figure/}{./figures/}}
+
+%---------- 定义列表项的样式 ----------
+\usepackage{enumitem}
+\setlist{nolistsep}
 
 %---------- 设置超链接 ----------
 \usepackage{hyperref}
@@ -83,18 +85,22 @@
 
 %---------- 设置章节 ----------
 \ctexset{
-  % section
+  %--- section ---
   section/name = {},
   section/number = \arabic{section},
   %section/number = \chinese{section},
   section/format = \centering,
   section/nameformat = \Large\bfseries,
   section/titleformat = \Large\bfseries,
-  %section/beforeskip = 5.5ex plus 1ex minus .2ex,
-  % subsection
+  %--- subsection ---
   subsection/format = \raggedright,
   subsection/nameformat = \large\bfseries,
   subsection/titleformat = \large\bfseries,
+  subsection/beforeskip = 10pt plus 2pt minus 2pt,
+  subsection/afterskip = 5pt plus 1pt minus 1pt,
+  %--- subsubsection ---
+  subsubsection/beforeskip = 8pt plus 2pt minus 2pt,
+  subsubsection/afterskip = 4pt plus 1pt minus 1pt,
   % appendix
   appendix/name = {附录},
 }
@@ -157,7 +163,7 @@
 \setlength{\floatsep}{10pt plus 2pt minus 2pt}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
 \setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
-\setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt}
+\setlength{\belowcaptionskip}{2pt plus 1pt minus 1pt}
 
 %---------- 浮动对象设置 ----------
 % 浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本页面
@@ -256,7 +262,7 @@
         \\[-2pt] \cline{2-2} \\[-12pt] \cline{2-2}
         }
         \end{tabular}
-        \begin{tabular}{lp{.64\linewidth}<{\centering}}
+        \begin{tabular}{lp{.68\linewidth}<{\centering}}
          \textbf{\hspace{2\ccwd}（英文）：} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
         \ifthenelse{\defentitlerownum=1}{
         \\[-7pt] \cline{2-2}

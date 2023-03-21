@@ -1,8 +1,8 @@
 %
 % This is file `shnubachelor.sty',
 % author andy123t
-% date 2023/03/15
-% version v1.0
+% date 2023/03/21
+% version v1.2
 % LaTeX template for Bachelor thesis of SHNU
 %
 
@@ -22,8 +22,10 @@
 \usepackage{makecell}
 \usepackage{anyfontsize}
 \usepackage{pdfpages}
-\usepackage{geometry}
+\usepackage{listings}
 \usepackage[numbered]{bookmark}
+
+\usepackage{geometry}
 \geometry{left=3.17cm,right=3.17cm,top=2.8cm,bottom=3.0cm}
 %\geometry{left=3.0cm,right=3.0cm,top=2.9cm,bottom=3.2cm}
 
@@ -90,17 +92,28 @@
   section/number = \arabic{section},
   %section/number = \chinese{section},
   section/format = \centering,
-  section/nameformat = \Large\bfseries,
-  section/titleformat = \Large\bfseries,
+  section/nameformat = \zihao{-2}\bfseries,
+  section/titleformat = \zihao{-2}\bfseries,
   %--- subsection ---
   subsection/format = \raggedright,
-  subsection/nameformat = \large\bfseries,
-  subsection/titleformat = \large\bfseries,
+  subsection/nameformat = \zihao{3}\bfseries,
+  subsection/titleformat = \zihao{3}\bfseries,
   subsection/beforeskip = 10pt plus 2pt minus 2pt,
   subsection/afterskip = 5pt plus 1pt minus 1pt,
   %--- subsubsection ---
+  subsubsection/format = \raggedright,
+  subsubsection/nameformat = \zihao{4}\bfseries,
+  subsubsection/titleformat = \zihao{4}\bfseries,
   subsubsection/beforeskip = 8pt plus 2pt minus 2pt,
   subsubsection/afterskip = 4pt plus 1pt minus 1pt,
+  %--- paragraph ---
+  paragraph/name = {,},
+  paragraph/format = \rmfamily\zihao{-4},
+  paragraph/number={\chinese{paragraph}},
+  %--- subparagraph ---
+  subparagraph/name = {,},
+  subparagraph/format = \rmfamily\zihao{-4},
+  subparagraph/number={\arabic{subparagraph}},
   % appendix
   appendix/name = {附录},
 }
@@ -109,6 +122,7 @@
 \usepackage{tocloft}
 \renewcommand{\cfttoctitlefont}{\hfill\bfseries\Large}
 \renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\contentsname}{目~~录}
 \setlength{\cftbeforetoctitleskip}{8pt}
 \setlength{\cftaftertoctitleskip}{20pt}
 \setlength{\cftbeforesecskip}{16pt}
@@ -121,9 +135,9 @@
 \newenvironment{cnabstract}{
 \clearpage
 \phantomsection
-\addcontentsline{toc}{section}{摘要}
-\section*{摘要}
-\sectionmark{摘要}
+\addcontentsline{toc}{section}{摘~~要}
+\section*{摘~~要}
+\sectionmark{摘~~要}
 }{
 \par
 }
@@ -143,7 +157,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}  % 段落之间的竖直距离
 \linespread{1.35}  % 设置行距
 %\renewcommand{\baselinestretch}{1.35}  % 设置行距
-%\setlength{\baselineskip}{24pt}
+%\setlength{\baselineskip}{18pt}
 
 %---------- 设置公式间距 ----------
 \AtBeginDocument{
@@ -232,14 +246,26 @@
 \renewcommand{\title}[2][1]{\def\titlerownum{#1}\def\@title{#2}}
 \newcommand{\entitle}[2][1]{\def\defentitlerownum{#1}\def\defentitle{#2}}
 
+%\newcolumntype{I}{!{\vrule width 3pt}}
+\newlength\savedwidth
+\newcommand\whline[1]{%
+  \noalign{%
+    \global\savedwidth\arrayrulewidth\global\arrayrulewidth 0.8pt%
+  }%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
 %---------- 载入学校logo ----------
 \def\logopic{shnu.eps}   %SHNU-logo
 
 %---------- 定义新的标题页面 ----------
+\makeatletter
 \renewcommand{\maketitle}[1][15em]{
 	\clearpage
 	\phantomsection
-	\pdfbookmark[1]{封面}{cover}
+	\pdfbookmark[1]{封~~面}{cover}
 	\thispagestyle{empty}
 	\begin{center}
 		\vspace*{1.0\baselineskip}
@@ -255,19 +281,21 @@
 		{\zihao{4}
         \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{lp{.68\linewidth}<{\centering}}
-        \textbf{题目（中文）：} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
         \ifthenelse{\titlerownum=1}{
-        \\[-8pt] \cline{2-2}
+		\raisebox{2.0pt}{\textbf{题目（中文）：}} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
+        \\[-9pt] \whline{2-2}
         }{
-        \\[-2pt] \cline{2-2} \\[-12pt] \cline{2-2}
+        \raisebox{-4.0pt}{\textbf{题目（中文）：}} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
+        \\[-3pt] \whline{2-2} \\[-12pt] \whline{2-2}
         }
         \end{tabular}
         \begin{tabular}{lp{.68\linewidth}<{\centering}}
-         \textbf{\hspace{2\ccwd}（英文）：} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
         \ifthenelse{\defentitlerownum=1}{
-        \\[-7pt] \cline{2-2}
+		\raisebox{1.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
+        \\[-7.5pt] \whline{2-2}
         }{
-        \\[-2pt] \cline{2-2} \\[-11pt] \cline{2-2}
+		\raisebox{-4.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
+        \\[-2pt] \whline{2-2} \\[-12pt] \whline{2-2}
         }
         \end{tabular}
         }
@@ -278,15 +306,15 @@
         \renewcommand{\arraystretch}{1.8}
         \begin{tabular}{lp{.46\linewidth}<{\centering}}
         学\hspace{2\ccwd}院 & \defcollege \\[-8pt]
-        \cline{2-2}
+        \whline{2-2}
         年级专业 & \defclassmajor \\[-8pt]
-        \cline{2-2}
+        \whline{2-2}
         学生姓名 & \@author \\[-8pt]
-        \cline{2-2}
+        \whline{2-2}
         学\hspace{2\ccwd}号  & \defstunum \\[-8pt]
-        \cline{2-2}
+        \whline{2-2}
         指导教师 & \definstructor \\[-8pt]
-        \cline{2-2}
+        \whline{2-2}
         \end{tabular}
         }
 
@@ -297,5 +325,98 @@
         \vspace*{5pt}
 	\end{center}
 }
+\makeatother
+
+
+%---------- 定义代码高亮 ----------
+% restore the tt default family to lmodern tt family
+%\renewcommand\ttdefault{lmtt}
+
+%---------- add code highlight style ----------
+% matlab highlight color settings
+%\definecolor{mBasic}{RGB}{248,248,242}
+\definecolor{mKeyword}{RGB}{0,0,255}
+\definecolor{mString}{RGB}{160,32,240}
+\definecolor{mComment}{RGB}{34,139,34}
+\definecolor{mNumber}{RGB}{96,96,96}
+\definecolor{mBackground}{RGB}{255,255,255}
+\definecolor{mRule}{RGB}{96,96,96}
+
+% Python highlight color settings
+%\definecolor{pBasic}{RGB}{248,248,242}
+\definecolor{pKeyword}{RGB}{228,0,128}
+\definecolor{pString}{RGB}{148,0,209}
+\definecolor{pComment}{RGB}{117,113,94}
+\definecolor{pIdentifier}{RGB}{166,226,46}
+\definecolor{pNumber}{RGB}{96,96,96}
+\definecolor{pBackground}{RGB}{255,255,255}
+\definecolor{pRule}{RGB}{96,96,96}
+
+%----- matlab highlight style -----
+\lstdefinestyle{matlab}
+{
+  language=matlab,
+  xleftmargin=23pt,
+  xrightmargin=5pt,
+  frame=tlbr,framesep=4pt,framerule=0.5pt,
+  framexleftmargin=17pt,
+  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
+  basicstyle=\footnotesize\ttfamily,
+  %basicstyle=\footnotesize\fontspec{Consolas},
+  keywordstyle={\color{mKeyword}},
+  stringstyle={\color{mString}},
+  commentstyle={\color{mComment}},
+  backgroundcolor=\color{mBackground},
+  rulecolor=\color{mRule},
+  keywords={
+    break,case,catch,classdef,continue,else,
+    elseif,end,for,function,global,if,otherwise,parfor,
+    persistent,return,spmd,switch,try,while
+  },
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=4,
+  captionpos=t,
+  breaklines=true,
+  numberstyle=\tiny\color{mNumber},
+  %numbersep=9pt,
+  numbers=left,
+  stepnumber=1,
+}
+
+%----- python highlight style -----
+\lstdefinestyle{python}{
+  language=python,
+  xleftmargin=23pt,
+  xrightmargin=5pt,
+  frame=tlbr,framesep=4pt,framerule=0.5pt,
+  framexleftmargin=18pt,
+  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
+  basicstyle=\footnotesize\ttfamily,
+  %basicstyle=\footnotesize\fontspec{Consolas},
+  keywordstyle=\color{pKeyword},
+  stringstyle=\color{pString},
+  commentstyle=\color{pComment},
+  backgroundcolor=\color{pBackground},
+  rulecolor=\color{pRule},
+  emph={format_string,eff_ana_bf,permute,eff_ana_btr},
+  emphstyle=\color{pIdentifier}
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=4,
+  captionpos=t,
+  breaklines=true,
+  numberstyle=\tiny\color{pNumber},
+  %numbersep=9pt,
+  numbers=left,
+  stepnumber=1,
+}
+
+%\lstset{basicstyle=\footnotesize\fontspec{Consolas}}
+%\lstset{basicstyle=\footnotesize\fontspec{Courier New}}
+%\newcommand*\lstinputpath[1]{\lstset{inputpath=#1}}
+%\lstinputpath{{./code/}}
 
 % End of file `shnubachelor.sty'.

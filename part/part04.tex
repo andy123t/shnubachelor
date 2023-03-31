@@ -33,7 +33,6 @@ LaTeX 的 Table 环境一个浮动体环境, 浮动体排版与 Figure 环境类
 \end{tabularx}
 \end{table}
 
-
 \begin{table}[htp!]
 \centering
 \caption{论文进度安排}
@@ -87,13 +86,13 @@ degree &  step-size~$h$  & $L^2$-errors  &  order  & $H^1$-errors & order & $L^\
 \end{table}
 
 \clearpage
-基于 tabularx 环境设置一些格式: 左右表格双线.
+基于 tabularx 环境设置一些格式, 如图 ~\ref{tab:error2}
 \begin{table}[htp!]
 \centering
 %\renewcommand\arraystretch{1.1} %定义表格高度
 \caption{数值误差示例}
 \label{tab:error2}
-\begin{tabularx}{0.96\textwidth}{||P{0.8cm}|C|C|C|C|C|C||}
+\begin{tabularx}{0.96\textwidth}{|P{0.8cm}|C|C|C|C|C|C|}
 \Xhline{2\arrayrulewidth}
 N  & A       & B    & C       & D      & E       & F   \\
 \Xhline{2\arrayrulewidth}

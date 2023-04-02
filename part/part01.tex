@@ -13,7 +13,7 @@
 
 这是一个文献引用的示例 \cite{Tadmor2012} 和 \cite{LiLiu1997,Adams2003,TreWei2014}.
 
-这是一大段文字这是一大段文字中英文混排 Numerical Methods. 这是一大段文字这是一大段文字这是一大段文字这是一大段文字这是一大段文字.%这是一大段文字%这是一大段文字这是一大段文字这是一大段文字这是一大段文字.
+这是中文与 English 混排. 标点统一使用英文的标点 (英文没有的除外). 这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字.
 
 
 \subsection{列表的使用}
@@ -52,7 +52,7 @@
 
 数学公式的使用请参考公式手册 symbols-a4, 或者 《一份(不太)简短的 \LaTeX~2$\varepsilon$ 介绍》 (lshort-zh-cn).
 
-自定义命令表示的几个数学符号 $\RR$, $\CC$, $\A$, $\ii$, $\md$, $\bA$.
+自定义命令表示的几个数学符号 $\RR$, $\CC$, $\A$, $\ii$, $\bA$. 微分符号 $\dif$ 以及 $\dx$, $\dx[t]$.
 
 在文中行内公式可以这么写: $a^2+b^2=c^2$, 这是勾股定理, 它还可以表示为 $c=\sqrt{a^2+b^2}$, 还可以让公式单独一段并且加上编号
 \begin{equation}\label{eq:trifun}
@@ -92,7 +92,7 @@ align 和 gather 有对应的不带编号的版本 align* 和 gather*.
 这个公式使用 aligned 环境 (\textbf{推荐使用})
 \begin{equation}\label{eq:alignedEq}
 \left\{\begin{aligned}
-  &-\frac{\mathrm{d}^{2} u}{\mathrm{d} x^{2}}+\frac{\mathrm{d} u}{\mathrm{d} x}=\pi^{2} \sin (\pi x)+\pi \cos (\pi x),\quad x \in [0,1], \\
+  &-\frac{{\dif}^{2} u}{\dif x^{2}}+\frac{\dif u}{\dif x}=\pi^{2} \sin (\pi x)+\pi \cos (\pi x),\quad x \in [0,1], \\
   &u(0)=0,\quad u(1)=0.
 \end{aligned} \right.
 \end{equation}
@@ -102,7 +102,7 @@ align 和 gather 有对应的不带编号的版本 align* 和 gather*.
 \begin{equation}\label{eq:arrayEq}
 \left\{\begin{array}{l}
 \displaystyle
--\frac{\mathrm{d}^{2} u}{\mathrm{d} x^{2}}+\frac{\mathrm{d} u}{\mathrm{d} x}=\pi^{2} \sin (\pi x)+\pi \cos (\pi x),\quad x \in [0,1], \\[6pt]
+-\frac{{\dif}^{2} u}{\dif x^{2}}+\frac{\dif u}{\dif x}=\pi^{2} \sin (\pi x)+\pi \cos (\pi x),\quad x \in [0,1], \\[6pt]
 u(0)=0,\quad u(1)=0.
 \end{array} \right.
 \end{equation}

@@ -1,7 +1,7 @@
 %
 % This is file `shnubachelor.sty',
 % author andy123t
-% date 2023/03/31
+% date 2023/04/11
 % version v1.2
 % LaTeX template for Bachelor thesis of SHNU
 %
@@ -39,11 +39,11 @@
 %---------- 设置超链接 ----------
 \usepackage{hyperref}
 \hypersetup{
-  colorlinks = true,
-  linkcolor = black,
-  citecolor = blue,
-  filecolor = blue,
-  urlcolor =blue,
+    colorlinks = true,
+    linkcolor = black,
+    citecolor = blue,
+    filecolor = blue,
+    urlcolor =blue,
 }
 
 %--- 允许多行公式跨页显示 ---
@@ -77,7 +77,7 @@
 }
 
 \fancypagestyle{plain}{%
-	\fancyhf{}
+    \fancyhf{}
     \headstyle
     \footstyle
 }
@@ -88,35 +88,35 @@
 
 %---------- 设置章节 ----------
 \ctexset{
-  %--- section ---
-  section/name = {},
-  section/number = \arabic{section},
-  %section/number = \chinese{section},
-  section/format = \centering,
-  section/nameformat = \zihao{-2}\bfseries,
-  section/titleformat = \zihao{-2}\bfseries,
-  %--- subsection ---
-  subsection/format = \raggedright,
-  subsection/nameformat = \zihao{3}\bfseries,
-  subsection/titleformat = \zihao{3}\bfseries,
-  subsection/beforeskip = 10pt plus 2pt minus 2pt,
-  subsection/afterskip = 5pt plus 1pt minus 1pt,
-  %--- subsubsection ---
-  subsubsection/format = \raggedright,
-  subsubsection/nameformat = \zihao{4}\bfseries,
-  subsubsection/titleformat = \zihao{4}\bfseries,
-  subsubsection/beforeskip = 8pt plus 2pt minus 2pt,
-  subsubsection/afterskip = 4pt plus 1pt minus 1pt,
-  %--- paragraph ---
-  paragraph/name = {,},
-  paragraph/format = \rmfamily\zihao{-4},
-  paragraph/number={\chinese{paragraph}},
-  %--- subparagraph ---
-  subparagraph/name = {,},
-  subparagraph/format = \rmfamily\zihao{-4},
-  subparagraph/number={\arabic{subparagraph}},
-  % appendix
-  appendix/name = {附录},
+    %--- section ---
+    section/name = {},
+    section/number = \arabic{section},
+    %section/number = \chinese{section},
+    section/format = \centering,
+    section/nameformat = \zihao{-2}\bfseries,
+    section/titleformat = \zihao{-2}\bfseries,
+    %--- subsection ---
+    subsection/format = \raggedright,
+    subsection/nameformat = \zihao{3}\bfseries,
+    subsection/titleformat = \zihao{3}\bfseries,
+    subsection/beforeskip = 10pt plus 2pt minus 2pt,
+    subsection/afterskip = 5pt plus 1pt minus 1pt,
+    %--- subsubsection ---
+    subsubsection/format = \raggedright,
+    subsubsection/nameformat = \zihao{4}\bfseries,
+    subsubsection/titleformat = \zihao{4}\bfseries,
+    subsubsection/beforeskip = 8pt plus 2pt minus 2pt,
+    subsubsection/afterskip = 4pt plus 1pt minus 1pt,
+    %--- paragraph ---
+    paragraph/name = {,},
+    paragraph/format = \rmfamily\zihao{-4},
+    paragraph/number={\chinese{paragraph}},
+    %--- subparagraph ---
+    subparagraph/name = {,},
+    subparagraph/format = \rmfamily\zihao{-4},
+    subparagraph/number={\arabic{subparagraph}},
+    % appendix
+    appendix/name = {附录},
 }
 
 %---------- 定义中英文关键词 ----------
@@ -233,29 +233,29 @@
     \trivlist\item[\hskip\labelsep
     \bfseries #1\@addpunct{\,:\,}]\ignorespaces
 }{
-	\popQED\endtrivlist\@endpefalse
+    \popQED\endtrivlist\@endpefalse
 }
 
 %---------- 子图宏包 ----------
 \usepackage{subfig} % 需要在tocloft后面
 
 %----------- 添加几个新的文档属性 -----------
-\newcommand{\college}[1]{\def\defcollege{#1}}
-\newcommand{\classmajor}[1]{\def\defclassmajor{#1}}
-\newcommand{\stunum}[1]{\def\defstunum{#1}}
-\newcommand{\instructor}[1]{\def\definstructor{#1}}
+\newcommand{\institute}[1]{\def\definstitute{#1}}
+\newcommand{\grademajor}[1]{\def\defgrademajor{#1}}
+\newcommand{\studentID}[1]{\def\defstudentID{#1}}
+\newcommand{\advisor}[1]{\def\defadvisor{#1}}
 \renewcommand{\title}[2][1]{\def\titlerownum{#1}\def\@title{#2}}
 \newcommand{\entitle}[2][1]{\def\defentitlerownum{#1}\def\defentitle{#2}}
 
 %\newcolumntype{I}{!{\vrule width 3pt}}
 \newlength\savedwidth
 \newcommand\whline[1]{%
-  \noalign{%
-    \global\savedwidth\arrayrulewidth\global\arrayrulewidth 0.8pt%
-  }%
-  \cline{#1}%
-  \noalign{\vskip\arrayrulewidth}%
-  \noalign{\global\arrayrulewidth\savedwidth}%
+    \noalign{%
+        \global\savedwidth\arrayrulewidth\global\arrayrulewidth 0.8pt%
+    }%
+    \cline{#1}%
+    \noalign{\vskip\arrayrulewidth}%
+    \noalign{\global\arrayrulewidth\savedwidth}%
 }
 
 %---------- 载入学校logo ----------
@@ -264,26 +264,26 @@
 %---------- 定义新的标题页面 ----------
 \makeatletter
 \renewcommand{\maketitle}[1][15em]{
-	\clearpage
-	\phantomsection
-	\pdfbookmark[1]{封~~面}{cover}
-	\thispagestyle{empty}
-	\begin{center}
-		\vspace*{1.0\baselineskip}
+    \clearpage
+    \phantomsection
+    \pdfbookmark[1]{封~~面}{cover}
+    \thispagestyle{empty}
+    \begin{center}
+        \vspace*{1.0\baselineskip}
 
-		\includegraphics[width=7.8cm]{\logopic}
+        \includegraphics[width=7.8cm]{\logopic}
 
-		\vspace*{2.0\baselineskip}
+        \vspace*{2.0\baselineskip}
 
-		{\fontsize{30}{30}\selectfont\heiti 本~科~毕~业~论~文（设~计）}
+        {\fontsize{30}{30}\selectfont\heiti 本~科~毕~业~论~文（设~计）}
 
-		\vspace*{3.2\baselineskip}
+        \vspace*{3.2\baselineskip}
 
-		{\zihao{4}
+        {\zihao{4}
         \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{lp{.68\linewidth}<{\centering}}
         \ifthenelse{\titlerownum=1}{
-		\raisebox{2.0pt}{\textbf{题目（中文）：}} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
+        \raisebox{2.0pt}{\textbf{题目（中文）：}} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
         \\[-9pt] \whline{2-2}
         }{
         \raisebox{-4.0pt}{\textbf{题目（中文）：}} & \multirow{\titlerownum}{\linewidth}{\centering\heiti \@title}
@@ -292,10 +292,10 @@
         \end{tabular}
         \begin{tabular}{lp{.68\linewidth}<{\centering}}
         \ifthenelse{\defentitlerownum=1}{
-		\raisebox{1.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
+        \raisebox{1.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
         \\[-7.5pt] \whline{2-2}
         }{
-		\raisebox{-4.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
+        \raisebox{-4.0pt}{\textbf{\hspace{2\ccwd}（英文）：}} & \multirow{\defentitlerownum}{\linewidth}{\centering \defentitle}
         \\[-2pt] \whline{2-2} \\[-12pt] \whline{2-2}
         }
         \end{tabular}
@@ -303,18 +303,18 @@
 
         \vspace*{3.3\baselineskip}
 
-		{\zihao{4}
+        {\zihao{4}
         \renewcommand{\arraystretch}{1.8}
         \begin{tabular}{lp{.46\linewidth}<{\centering}}
-        学\hspace{2\ccwd}院 & \defcollege \\[-8pt]
+        学\hspace{2\ccwd}院 & \definstitute \\[-8pt]
         \whline{2-2}
-        年级专业 & \defclassmajor \\[-8pt]
+        年级专业 & \defgrademajor \\[-8pt]
         \whline{2-2}
         学生姓名 & \@author \\[-8pt]
         \whline{2-2}
-        学\hspace{2\ccwd}号  & \defstunum \\[-8pt]
+        学\hspace{2\ccwd}号  & \defstudentID \\[-8pt]
         \whline{2-2}
-        指导教师 & \definstructor \\[-8pt]
+        指导教师 & \defadvisor \\[-8pt]
         \whline{2-2}
         \end{tabular}
         }
@@ -324,7 +324,7 @@
         {\zihao{3}\textbf{完~成~日~期} \quad \@date}
 
         \vspace*{5pt}
-	\end{center}
+    \end{center}
 }
 \makeatother
 
@@ -356,63 +356,63 @@
 %----- matlab highlight style -----
 \lstdefinestyle{matlab}
 {
-  language=matlab,
-  xleftmargin=23pt,
-  xrightmargin=5pt,
-  frame=tlbr,framesep=4pt,framerule=0.5pt,
-  framexleftmargin=17pt,
-  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
-  basicstyle=\footnotesize\ttfamily,
-  %basicstyle=\footnotesize\fontspec{Consolas},
-  keywordstyle={\color{mKeyword}},
-  stringstyle={\color{mString}},
-  commentstyle={\color{mComment}},
-  backgroundcolor=\color{mBackground},
-  rulecolor=\color{mRule},
-  keywords={
-    break,case,catch,classdef,continue,else,
-    elseif,end,for,function,global,if,otherwise,parfor,
-    persistent,return,spmd,switch,try,while
-  },
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
-  tabsize=4,
-  captionpos=t,
-  breaklines=true,
-  numberstyle=\tiny\color{mNumber},
-  %numbersep=9pt,
-  numbers=left,
-  stepnumber=1,
+    language=matlab,
+    xleftmargin=23pt,
+    xrightmargin=5pt,
+    frame=tlbr,framesep=4pt,framerule=0.5pt,
+    framexleftmargin=17pt,
+    %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
+    basicstyle=\footnotesize\ttfamily,
+    %basicstyle=\footnotesize\fontspec{Consolas},
+    keywordstyle={\color{mKeyword}},
+    stringstyle={\color{mString}},
+    commentstyle={\color{mComment}},
+    backgroundcolor=\color{mBackground},
+    rulecolor=\color{mRule},
+    keywords={
+        break,case,catch,classdef,continue,else,
+        elseif,end,for,function,global,if,otherwise,parfor,
+        persistent,return,spmd,switch,try,while
+    },
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    captionpos=t,
+    breaklines=true,
+    numberstyle=\tiny\color{mNumber},
+    %numbersep=9pt,
+    numbers=left,
+    stepnumber=1,
 }
 
 %----- python highlight style -----
 \lstdefinestyle{python}{
-  language=python,
-  xleftmargin=23pt,
-  xrightmargin=5pt,
-  frame=tlbr,framesep=4pt,framerule=0.5pt,
-  framexleftmargin=18pt,
-  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
-  basicstyle=\footnotesize\ttfamily,
-  %basicstyle=\footnotesize\fontspec{Consolas},
-  keywordstyle=\color{pKeyword},
-  stringstyle=\color{pString},
-  commentstyle=\color{pComment},
-  backgroundcolor=\color{pBackground},
-  rulecolor=\color{pRule},
-  emph={format_string,eff_ana_bf,permute,eff_ana_btr},
-  emphstyle=\color{pIdentifier}
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
-  tabsize=4,
-  captionpos=t,
-  breaklines=true,
-  numberstyle=\tiny\color{pNumber},
-  %numbersep=9pt,
-  numbers=left,
-  stepnumber=1,
+    language=python,
+    xleftmargin=23pt,
+    xrightmargin=5pt,
+    frame=tlbr,framesep=4pt,framerule=0.5pt,
+    framexleftmargin=18pt,
+    %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
+    basicstyle=\footnotesize\ttfamily,
+    %basicstyle=\footnotesize\fontspec{Consolas},
+    keywordstyle=\color{pKeyword},
+    stringstyle=\color{pString},
+    commentstyle=\color{pComment},
+    backgroundcolor=\color{pBackground},
+    rulecolor=\color{pRule},
+    emph={format_string,eff_ana_bf,permute,eff_ana_btr},
+    emphstyle=\color{pIdentifier}
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    captionpos=t,
+    breaklines=true,
+    numberstyle=\tiny\color{pNumber},
+    %numbersep=9pt,
+    numbers=left,
+    stepnumber=1,
 }
 
 %\lstset{basicstyle=\footnotesize\fontspec{Consolas}}

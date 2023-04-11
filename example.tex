@@ -51,12 +51,11 @@
 %----- 论文标题、作者、导师、日期等相关信息 -----
 \title[2]{上海师范大学本科毕业论文 LaTeX 模板. 这里填写毕业论文的题目}
 \entitle[2]{LaTeX template for bachelor thesis of Shanghai Normal University. This is a thesis title}
-\author{某某某}    % 作者姓名
-\college{学院名称}  % 学院名称
-\classmajor{202X 级某某专业}  % 班级专业
-\stunum{123000678}    % 学号
-\instructor{某某某~~教授}  % 导师姓名
-
+\author{某某某}   % 作者姓名
+\institute{学院名称}  % 学院名称
+\grademajor{202X 级某某专业}  % 班级专业
+\studentID{123000678}  % 学号
+\advisor{某某某~~教授}  % 导师姓名
 \date{202X~年~X~月}  % 完成日期
 
 
@@ -108,7 +107,7 @@
 
 %\clearpage
 \phantomsection
-\addcontentsline{toc}{section}{参考文献} % 添加  "参考文献 " 到目录
+\addcontentsline{toc}{section}{参考文献}
 
 \fangsong %设置字体为仿宋
 
@@ -116,7 +115,7 @@
 
 % 第一种方式, 使用 bib 文件
 %\nocite{*}  % 可以暂时显示全部参考文献, 包括未引用的
-\bibliography{mybib}
+\bibliography{reference}
 
 %------------------------------------------------
 
@@ -134,7 +133,7 @@
 %%%%%%%%%%%%%%%%%%%%%% 致谢 %%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
-\input{part/thanks}
+\input{part/acknowledgement}
 
 
 \end{document}

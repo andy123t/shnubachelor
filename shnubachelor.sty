@@ -1,8 +1,8 @@
 %
 % This is file `shnubachelor.sty',
 % author andy123t
-% date 2023/04/11
-% version v1.2
+% date 2023/04/24
+% version v1.3
 % LaTeX template for Bachelor thesis of SHNU
 %
 
@@ -30,7 +30,7 @@
 %\geometry{left=3.0cm,right=3.0cm,top=2.9cm,bottom=3.2cm}
 
 %---------- 设置图片的路径 ----------
-\graphicspath{{./figure/}{./figures/}}
+\graphicspath{{./figure/}{./figures/}{./image/}{./images/}}
 
 %---------- 定义列表项的样式 ----------
 \usepackage{enumitem}
@@ -93,18 +93,18 @@
     section/number = \arabic{section},
     %section/number = \chinese{section},
     section/format = \centering,
-    section/nameformat = \zihao{-2}\bfseries,
-    section/titleformat = \zihao{-2}\bfseries,
+    section/nameformat = \zihao{-2}\sffamily\heiti,
+    section/titleformat = \zihao{-2}\sffamily\heiti,
     %--- subsection ---
     subsection/format = \raggedright,
-    subsection/nameformat = \zihao{3}\bfseries,
-    subsection/titleformat = \zihao{3}\bfseries,
+    subsection/nameformat = \zihao{3}\sffamily\heiti,
+    subsection/titleformat = \zihao{3}\sffamily\heiti,
     subsection/beforeskip = 10pt plus 2pt minus 2pt,
     subsection/afterskip = 5pt plus 1pt minus 1pt,
     %--- subsubsection ---
     subsubsection/format = \raggedright,
-    subsubsection/nameformat = \zihao{4}\bfseries,
-    subsubsection/titleformat = \zihao{4}\bfseries,
+    subsubsection/nameformat = \zihao{4}\sffamily\heiti,
+    subsubsection/titleformat = \zihao{4}\sffamily\heiti,
     subsubsection/beforeskip = 8pt plus 2pt minus 2pt,
     subsubsection/afterskip = 4pt plus 1pt minus 1pt,
     %--- paragraph ---
@@ -115,13 +115,13 @@
     subparagraph/name = {,},
     subparagraph/format = \rmfamily\zihao{-4},
     subparagraph/number={\arabic{subparagraph}},
-    % appendix
+    %--- appendix ---
     appendix/name = {附录},
 }
 
-%---------- 定义中英文关键词 ----------
+%---------- 设置目录 ----------
 \usepackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\hfill\bfseries\Large}
+\renewcommand{\cfttoctitlefont}{\hfill\sffamily\heiti\Large}
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\contentsname}{目~~录}
 \setlength{\cftbeforetoctitleskip}{8pt}
@@ -130,7 +130,8 @@
 \setlength{\cftbeforesubsecskip}{5pt}
 \renewcommand{\cftdot}{$\cdot$}
 \renewcommand{\cftdotsep}{3}
-\renewcommand{\cftsecdotsep}{\cftdotsep}  %
+\renewcommand{\cftsecdotsep}{\cftdotsep}%
+\renewcommand{\cftsecfont}{\sffamily\heiti}
 
 %---------- 中文摘要环境 ----------
 \newenvironment{cnabstract}{
@@ -275,7 +276,7 @@
 
         \vspace*{2.0\baselineskip}
 
-        {\fontsize{30}{30}\selectfont\heiti 本~科~毕~业~论~文（设~计）}
+        {\fontsize{30bp}{30bp}\selectfont\heiti 本~科~毕~业~论~文（设~计）}
 
         \vspace*{3.2\baselineskip}
 

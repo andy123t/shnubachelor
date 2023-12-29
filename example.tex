@@ -3,6 +3,9 @@
 % xelatex -> bibtex -> xelatex -> xelatex
 % 上海师范大学本科毕业论文 LaTeX 模板
 
+%----- only change text font -----
+\PassOptionsToPackage{no-math}{fontspec}
+
 \documentclass[a4paper,zihao=-4]{ctexart}
 %\documentclass[a4paper,zihao=-4,twoside]{ctexart}
 
@@ -12,10 +15,13 @@
 %----- 添加需要用的其他宏包 -----
 %\usepackage{xltxtra}
 
-%----- 设置英文字体  -----
-\usepackage{newtxtext}
-%\setmainfont{Times New Roman}
-\setsansfont{Arial}
+%----- 设置英文字体 -----
+%\usepackage{newtxtext}  %New TX font for text
+%\setmainfont{TeX Gyre Termes}  %Times New Roman 的开源复刻版本
+%\setsansfont{TeX Gyre Heros}  %Helvetica 的开源复刻版本
+%\setmonofont{TeX Gyre Cursor}  %Courier New 的开源复刻版本
+\setmainfont{Times New Roman}
+%\setsansfont{Arial}
 %\setmonofont{Courier New}
 
 %----- 设置数学字体 -----
@@ -30,8 +36,8 @@
 %----- 参考文献引用格式 -----
 \usepackage[numbers,sort&compress]{natbib}
 %\usepackage[numbers,super,square,sort&compress]{natbib}
-\def\bibfont{\small}      % 修改参考文献字体
-\setlength{\bibsep}{8pt}  % 调整参考文献间距
+\def\bibfont{\small}  % 修改参考文献字体
+\setlength{\bibsep}{7pt plus 3pt minus 3pt}  % 调整参考文献间距
 
 %----- 定义手动添加空白页 -----
 \newcommand{\blankpage}{\clearpage\thispagestyle{empty}
@@ -45,7 +51,7 @@
 \newcommand{\RR}{\ensuremath{\mathbb{R}}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\bA}{\boldsymbol{A}}
-\newcommand{\ii}{\mathrm{i}\,}
+\newcommand{\ii}{\mathrm{i}\mkern1mu}
 \newcommand{\dx}[1][x]{\mathop{}\!\mathrm{d}#1}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 
@@ -53,11 +59,11 @@
 %----- 论文标题、作者、导师、日期等相关信息 -----
 \title[2]{上海师范大学本科毕业论文 LaTeX 模板. 这里填写毕业论文的题目}
 \entitle[2]{LaTeX template for bachelor thesis of Shanghai Normal University. This is a thesis title}
-\author{某某某}   % 作者姓名
+\author{某某某}  % 作者姓名
 \institute{学院名称}  % 学院名称
 \grademajor{202X 级某某专业}  % 班级专业
 \studentID{123000678}  % 学号
-\advisor{某某某~~教授}  % 导师姓名
+\advisor{某某某}  % 导师姓名
 \date{202X~年~X~月}  % 完成日期
 
 
@@ -70,12 +76,12 @@
 %\includepdf{name.pdf}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \pagenumbering{Roman}  % 摘要页码为大写罗马数字
 
-%%%%%%%%%%%%%%%%%%%% 中文摘要 %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% 中文摘要 %%%%%%%%%%%%%%%%%%%%%
 
 \input{part/cnabstract}
 
@@ -83,18 +89,18 @@
 
 \input{part/enabstract}
 
-%%%%%%%%%%%%%%%%%%%% 生成目录 %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% 生成目录 %%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \pagenumbering{arabic}  % 正文页码为阿拉伯数字
 
-%%%%%%%%%%%%%%%%%%%% 正文内容 %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% 正文内容 %%%%%%%%%%%%%%%%%%%%%
 
 
 \input{part/part01}

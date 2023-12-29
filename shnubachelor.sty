@@ -1,14 +1,14 @@
 %
 % This is file `shnubachelor.sty',
 % author andy123t
-% date 2023/04/24
-% version v1.3
+% date 2023/06/09
+% version v1.4
 % LaTeX template for Bachelor thesis of SHNU
 %
 
 %---------- 常用宏包 ----------
 \usepackage{amsmath,amsthm,amssymb}
-\usepackage{mathrsfs,bm}
+\usepackage{mathrsfs}
 \usepackage{graphicx}
 %\usepackage[english]{babel}
 \usepackage{color,xcolor}
@@ -26,7 +26,7 @@
 \usepackage[numbered]{bookmark}
 
 \usepackage{geometry}
-\geometry{left=3.17cm,right=3.17cm,top=2.8cm,bottom=3.0cm}
+\geometry{left=3.17cm,right=3.17cm,top=3.0cm,bottom=3.0cm}
 %\geometry{left=3.0cm,right=3.0cm,top=2.9cm,bottom=3.2cm}
 
 %---------- 设置图片的路径 ----------
@@ -163,8 +163,8 @@
 
 %---------- 设置公式间距 ----------
 \AtBeginDocument{
-    \setlength{\abovedisplayskip}{5pt plus 2pt minus 2pt}
-    \setlength{\belowdisplayskip}{5pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
     \setlength{\abovedisplayshortskip}{3pt plus 1pt minus 1pt}
     \setlength{\belowdisplayshortskip}{3pt plus 1pt minus 1pt}
     %\setlength{\arraycolsep}{2pt}   % array中列之间空白长度
@@ -178,8 +178,8 @@
 \setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
 \setlength{\floatsep}{10pt plus 2pt minus 2pt}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
-\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
-\setlength{\belowcaptionskip}{2pt plus 1pt minus 1pt}
+%\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
+%\setlength{\belowcaptionskip}{2pt plus 1pt minus 1pt}
 
 %---------- 浮动对象设置 ----------
 % 浮动对象的缺省值稍微宽松一点，从而防止幅度对象占据过多的文本页面
@@ -213,7 +213,12 @@
 \newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
 
 %---------- 数学定理设置 ----------
-\theoremstyle{plain}
+\newtheoremstyle{shnu}
+{0.5\topsep}{0.5\topsep}
+{\itshape}{}{\bfseries}
+{.}{5pt plus 1pt minus 1pt}{}
+%\theoremstyle{plain}
+\theoremstyle{shnu}
 \newtheorem{definition}{定义}[section]
 \newtheorem{proposition}{命题}[section]
 \newtheorem{lemma}{引理}[section]
@@ -230,7 +235,8 @@
 \renewcommand{\proofname}{证明}
 \renewenvironment{proof}[1][\proofname]{\par
     \pushQED{\qed}%
-    \normalfont \topsep6\p@\@plus6\p@\relax
+    %\normalfont \topsep6\p@\@plus6\p@\relax
+	\normalfont \topsep0\p@\@plus3\p@\relax
     \trivlist\item[\hskip\labelsep
     \bfseries #1\@addpunct{\,:\,}]\ignorespaces
 }{

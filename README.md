@@ -4,6 +4,6 @@
 
 本模板为非官方版，参考了毕业论文的格式，需要 texlive 发行版，并且 XeLaTeX 编译运行！
 
-本地测试环境：Windows 10 安装 texlive 2020 发行版。
+本地测试环境：Windows 10 安装 texlive 发行版。
 
-在线 LaTeX 编辑可以使用 [TeXPage](https://www.texpage.com/)，选 texlive 2021 版本，设置字体 (`fontset=windows`)，字体符合学校要求。
+在线 LaTeX 编辑可以使用 [TeXPage](https://www.texpage.com/)，使用 XeLaTeX 编译，设置字体 (`fontset=windows`)，字体符合学校要求。

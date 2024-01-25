@@ -16,12 +16,12 @@
 %\usepackage{xltxtra}
 
 %----- 设置英文字体 -----
-%\usepackage{newtxtext}  %New TX font for text
-%\setmainfont{TeX Gyre Termes}  %Times New Roman 的开源复刻版本
-%\setsansfont{TeX Gyre Heros}  %Helvetica 的开源复刻版本
-%\setmonofont{TeX Gyre Cursor}  %Courier New 的开源复刻版本
+%\usepackage{newtxtext}  % New TX font for text
+%\setmainfont{TeX Gyre Termes}  % Times New Roman 的开源复刻版本
+%\setsansfont{TeX Gyre Heros}   % Helvetica 的开源复刻版本
+%\setmonofont{TeX Gyre Cursor}  % Courier New 的开源复刻版本
 \setmainfont{Times New Roman}
-%\setsansfont{Arial}
+\setsansfont{Arial}
 %\setmonofont{Courier New}
 
 %----- 设置数学字体 -----
@@ -30,12 +30,13 @@
 
 %----- 参考文献格式 -----
 %\bibliographystyle{plain} % abbrv, unsrt, siam
-\bibliographystyle{thuthesis-numeric}
-%\bibliographystyle{thuthesis-author-year}
+\bibliographystyle{shnuthesis-numeric}
+%\bibliographystyle{shnuthesis-author-year}
 
 %----- 参考文献引用格式 -----
 \usepackage[numbers,sort&compress]{natbib}
 %\usepackage[numbers,super,square,sort&compress]{natbib}
+%\usepackage[authoryear,sort&compress]{natbib}
 \def\bibfont{\small}  % 修改参考文献字体
 \setlength{\bibsep}{7pt plus 3pt minus 3pt}  % 调整参考文献间距
 
@@ -73,34 +74,36 @@
 \maketitle
 
 %--- 插入 pdf 文件 ---
-%\includepdf{name.pdf}
+%\includepdf{filename.pdf}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=====================================%
 
 \clearpage
-\pagenumbering{Roman}  % 摘要页码为大写罗马数字
+% 页码使用罗马数字
+\pagenumbering{Roman}
 
-%%%%%%%%%%%%%%%%%%%% 中文摘要 %%%%%%%%%%%%%%%%%%%%%
+%=============== 摘要 =================%
 
+% 中文摘要内容和关键字
 \input{part/cnabstract}
 
-%%%%%%%%%%%%%%%%%%% 英文摘要 %%%%%%%%%%%%%%%%%%%%%%
-
+% 英文摘要内容和关键字
 \input{part/enabstract}
 
-%%%%%%%%%%%%%%%%%%%% 生成目录 %%%%%%%%%%%%%%%%%%%%%
+%=============== 目录 =================%
 
 \clearpage
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=====================================%
 
 \clearpage
-\pagenumbering{arabic}  % 正文页码为阿拉伯数字
+% 页码使用阿拉伯数字
+\pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%% 正文内容 %%%%%%%%%%%%%%%%%%%%%
+%============== 正文部分 ==============%
 
 
 \input{part/part01}
@@ -112,9 +115,9 @@
 \input{part/part04}
 
 
-%%%%%%%%%%%%%%%%%%%% 参考文献 %%%%%%%%%%%%%%%%%%%%%
+%============== 参考文献 ==============%
 
-%\clearpage
+\clearpage
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
 
@@ -126,20 +129,20 @@
 %\nocite{*}  % 可以暂时显示全部参考文献, 包括未引用的
 \bibliography{reference}
 
-%------------------------------------------------
+%====================================%
 
 % 第二种方式, 手动添加文献信息
 %\input{part/bibliography}
 
 
-%%%%%%%%%%%%%%%%%%%%%% 附录 %%%%%%%%%%%%%%%%%%%%%%
+%=============== 附录 ===============%
 
 % 添加附录, 如不需要可以注释
 \clearpage
 \input{part/appendix}
 
 
-%%%%%%%%%%%%%%%%%%%%%% 致谢 %%%%%%%%%%%%%%%%%%%%%%
+%=============== 致谢 ===============%
 
 \clearpage
 \input{part/acknowledgement}
